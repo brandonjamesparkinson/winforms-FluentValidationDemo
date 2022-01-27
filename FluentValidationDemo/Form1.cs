@@ -1,4 +1,6 @@
-﻿using ModelLibrary;
+﻿using FluentValidation.Results;
+using FluentValidationDemo.Validators;
+using ModelLibrary;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,11 +20,13 @@ namespace FluentValidationDemo
         public Form1()
         {
             InitializeComponent();
+
+            errorListBox.DataSource = errors;
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            errorListBox.Clear();
+            errors.Clear();
 
             if (!decimal.TryParse(txtAccountBalance.Text, out decimal accountBalance))
             {
@@ -33,8 +37,22 @@ namespace FluentValidationDemo
             PersonModel person = new PersonModel();
             person.FirstName = txtFirstName.Text;
             person.LastName = txtLastName.Text;
-            person.AccountBalance = decimal.Parse(txtAccountBalance.Text);
+            person.AccountBalance = accountBalance;
             person.DateOfBirth = DTPDateOfBirth.Value;
+
+            // Validate my data
+            PersonValidator validator = new PersonValidator();
+
+            ValidationResult results = validator.Validate(person);
+
+            if (results.IsValid == false)
+            {
+                foreach (ValidationFailure failure in results.Errors)
+                {
+                    errors.Add($"{ failure.ErrorMessage }");
+                }
+            }
+
 
             // Insert into DB
 

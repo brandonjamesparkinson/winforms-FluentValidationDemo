@@ -33,13 +33,13 @@
             this.lblAccountBalance = new System.Windows.Forms.Label();
             this.lblLastName = new System.Windows.Forms.Label();
             this.lblDateOfBirth = new System.Windows.Forms.Label();
-            this.errorListBox = new System.Windows.Forms.TextBox();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.txtAccountBalance = new System.Windows.Forms.TextBox();
             this.lblErrorList = new System.Windows.Forms.Label();
             this.btnCreate = new System.Windows.Forms.Button();
             this.DTPDateOfBirth = new System.Windows.Forms.DateTimePicker();
+            this.errorListBox = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // lblCreateUser
@@ -92,15 +92,6 @@
             this.lblDateOfBirth.TabIndex = 4;
             this.lblDateOfBirth.Text = "Date of Birth";
             // 
-            // errorListBox
-            // 
-            this.errorListBox.Location = new System.Drawing.Point(460, 100);
-            this.errorListBox.Multiline = true;
-            this.errorListBox.Name = "errorListBox";
-            this.errorListBox.Size = new System.Drawing.Size(504, 178);
-            this.errorListBox.TabIndex = 5;
-            this.errorListBox.Text = "errorListBox";
-            // 
             // txtFirstName
             // 
             this.txtFirstName.Location = new System.Drawing.Point(222, 100);
@@ -150,18 +141,27 @@
             this.DTPDateOfBirth.Size = new System.Drawing.Size(200, 23);
             this.DTPDateOfBirth.TabIndex = 12;
             // 
+            // errorListBox
+            // 
+            this.errorListBox.FormattingEnabled = true;
+            this.errorListBox.ItemHeight = 15;
+            this.errorListBox.Location = new System.Drawing.Point(460, 100);
+            this.errorListBox.Name = "errorListBox";
+            this.errorListBox.Size = new System.Drawing.Size(504, 154);
+            this.errorListBox.TabIndex = 13;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(976, 345);
+            this.Controls.Add(this.errorListBox);
             this.Controls.Add(this.DTPDateOfBirth);
             this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.lblErrorList);
             this.Controls.Add(this.txtAccountBalance);
             this.Controls.Add(this.txtLastName);
             this.Controls.Add(this.txtFirstName);
-            this.Controls.Add(this.errorListBox);
             this.Controls.Add(this.lblDateOfBirth);
             this.Controls.Add(this.lblLastName);
             this.Controls.Add(this.lblAccountBalance);
@@ -181,12 +181,12 @@
         private System.Windows.Forms.Label lblAccountBalance;
         private System.Windows.Forms.Label lblLastName;
         private System.Windows.Forms.Label lblDateOfBirth;
-        private System.Windows.Forms.TextBox errorListBox;
         private System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.TextBox txtAccountBalance;
         private System.Windows.Forms.Label lblErrorList;
         private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.DateTimePicker DTPDateOfBirth;
+        private System.Windows.Forms.ListBox errorListBox;
     }
 }
